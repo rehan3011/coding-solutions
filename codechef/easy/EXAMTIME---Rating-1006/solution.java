@@ -9,24 +9,22 @@ class Codechef
 		Scanner sc = new Scanner(System.in);
 		
 		int n = sc.nextInt();
-		int d=0,s=0;
 		
-		int ddsa, dtoc, ddm, sdsa, stoc, sdm = 0;
 		for(int i=0; i<n; i++){
 		    
-		    ddsa = sc.nextInt();
-		    dtoc =  sc.nextInt();
-		    ddm =  sc.nextInt();
-		    sdsa =  sc.nextInt();
-		    stoc =  sc.nextInt();
-		    sdm =  sc.nextInt();
+		    int ddsa = sc.nextInt();
+		    int dtoc =  sc.nextInt();
+		    int ddm =  sc.nextInt();
+		    int sdsa =  sc.nextInt();
+		    int stoc =  sc.nextInt();
+		    int sdm =  sc.nextInt();
             
-            d+=ddsa+dtoc+ddm;
-            s+=sdsa+stoc+sdm;
+           int  d=ddsa+dtoc+ddm;
+           int  s=sdsa+stoc+sdm;
             
             if(d>s) System.out.println("DRAGON");
             else if(s>d) System.out.println("SLOTH");
-            else if(s==d){
+            else{
                 if(ddsa>sdsa) System.out.println("DRAGON");
                 else if(sdsa>ddsa) System.out.println("SLOTH");
                 else if(dtoc>stoc) System.out.println("DRAGON");
