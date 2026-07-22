@@ -81,19 +81,29 @@ Note: 49 is not 1 (I) less of 50 (L) because the conversion is based on decimal 
 ## Solution
 
 **Language:** Java  
-**Runtime:** 7 ms (beats 10.92%)  
-**Memory:** 46.6 MB (beats 26.13%)  
-**Submitted:** 2026-07-22T17:56:49.195Z  
+**Runtime:** 3 ms (beats 99.87%)  
+**Memory:** 46.5 MB (beats 43.18%)  
+**Submitted:** 2026-07-22T17:57:47.166Z  
 
 ```java
 class Solution {
-public static String intToRoman(int num) {
-    String M[] = {"", "M", "MM", "MMM"};
-    String C[] = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
-    String X[] = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
-    String I[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
-    return M[num/1000] + C[(num%1000)/100] + X[(num%100)/10] + I[num%10];
-}
+    public String intToRoman(int num) {
+        final int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        final String[] symbols = {"M", "CM", "D",  "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < values.length; ++i) {
+            if (num == 0)
+                break;
+            while (num >= values[i]) {
+                sb.append(symbols[i]);
+                num -= values[i];
+            }
+        }
+
+        return sb.toString();        
+    }
 }
 ```
 
