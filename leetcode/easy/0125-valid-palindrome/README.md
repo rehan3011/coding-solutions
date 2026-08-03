@@ -48,13 +48,19 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 ## Solution
 
 **Language:** Java  
-**Runtime:** 14 ms (beats 29.47%)  
-**Memory:** 46.3 MB (beats 26.72%)  
-**Submitted:** 2026-08-02T17:10:38.965Z  
+**Runtime:** 15 ms (beats 19.42%)  
+**Memory:** 46.3 MB (beats 26.70%)  
+**Submitted:** 2026-08-03T16:22:00.943Z  
 
 ```java
 class Solution {
     public boolean isPalindrome(String s) {
+        //optimal solution
+
+        
+
+
+        // Brute Force Approach
   String str = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
     int n = str.length();
     int start = 0 ;
