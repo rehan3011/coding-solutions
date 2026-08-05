@@ -36,8 +36,8 @@ Output: [2,3]
 
 **Language:** Java  
 **Runtime:** 0 ms  
-**Memory:** 42.3 MB  
-**Submitted:** 2026-08-05T16:28:53.485Z  
+**Memory:** 42.4 MB  
+**Submitted:** 2026-08-05T16:29:49.817Z  
 
 ```java
 /**
@@ -62,8 +62,8 @@ class Solution {
 
         ListNode prev = first;
 
-        while(head.next!=null&&head.next!=null){
-            if(head.val==head.next.val){
+        while(head.next!=null){
+            if(head.next!=null&&head.val==head.next.val){
                 while(head.next!=null&&head.val==head.next.val){
                     head = head.next;
                 }
