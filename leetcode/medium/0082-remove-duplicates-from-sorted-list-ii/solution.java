@@ -20,7 +20,7 @@ class Solution {
 
         ListNode prev = first;
 
-        while(head.next!=null){
+        while(head!=null){
             if(head.next!=null&&head.val==head.next.val){
                 while(head.next!=null&&head.val==head.next.val){
                     head = head.next;
