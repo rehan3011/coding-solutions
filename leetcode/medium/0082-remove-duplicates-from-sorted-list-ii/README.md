@@ -35,9 +35,9 @@ Output: [2,3]
 ## Solution
 
 **Language:** Java  
-**Runtime:** 0 ms  
-**Memory:** 42.4 MB  
-**Submitted:** 2026-08-05T16:29:49.817Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 44.8 MB (beats 74.18%)  
+**Submitted:** 2026-08-05T16:38:47.389Z  
 
 ```java
 /**
@@ -62,7 +62,7 @@ class Solution {
 
         ListNode prev = first;
 
-        while(head.next!=null){
+        while(head!=null){
             if(head.next!=null&&head.val==head.next.val){
                 while(head.next!=null&&head.val==head.next.val){
                     head = head.next;
