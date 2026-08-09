@@ -49,8 +49,8 @@ Output: [1]
 
 **Language:** Java  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 43.6 MB (beats 40.65%)  
-**Submitted:** 2026-02-09T06:05:03.464Z  
+**Memory:** 43.7 MB (beats 6.91%)  
+**Submitted:** 2026-02-09T06:19:21.373Z  
 
 ```java
 /**
@@ -63,29 +63,60 @@ Output: [1]
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
+
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode  curr;
-        ListNode temp=head;
-        int c=0;
-        curr=head;
-        while(temp!=null){
-            c++;
-            temp= temp.next;
+
+        //Approach two
+
+        ListNode meow = new ListNode(0);
+        meow.next = head;
+        ListNode slow = meow;
+        ListNode fast = meow;
+        int i =0;
+        while(i<=n){
+            fast= fast.next;
+            i++;
         }
-        if(c==n) return head.next;
 
-        for(int i=1; i<c-n; i++){
-            curr = curr.next;
+        while(fast!=null){
+            fast=fast.next;
+            slow=slow.next;
         }
 
-        curr.next = curr.next.next;
+        slow.next = slow.next.next;
 
-        return head;
-
-
+        return meow.next;
     }
 }
+
+
+
+
+
+// Approach one:)
+// //         ListNode  curr;
+// //         ListNode temp=head;
+// //         int c=0;
+// //         curr=head;
+// //         while(temp!=null){
+// //             c++;
+// //             temp= temp.next;
+// //         }
+// //         if(c==n) return head.next;
+
+// //         for(int i=1; i<c-n; i++){
+// //             curr = curr.next;
+// //         }
+
+// //         curr.next = curr.next.next;
+
+// //         return head;
+
+
+//     }
+// }
 ```
 
 ---
