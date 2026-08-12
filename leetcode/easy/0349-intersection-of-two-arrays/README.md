@@ -35,9 +35,9 @@ Explanation: [4,9] is also accepted.
 ## Solution
 
 **Language:** Java  
-**Runtime:** 2 ms (beats 97.17%)  
-**Memory:** 45.4 MB (beats 5.58%)  
-**Submitted:** 2026-08-12T18:00:00.417Z  
+**Runtime:** 0 ms  
+**Memory:** 43 MB  
+**Submitted:** 2026-08-12T18:00:29.924Z  
 
 ```java
 class Solution {
@@ -49,12 +49,12 @@ class Solution {
         if(n1<n2){
 
         HashSet<Integer> set1 = new HashSet<>();
-        for (int num : nums2) {
+        for (int num : nums1) {
             set1.add(num);
         }
 
         HashSet<Integer> intersectionSet = new HashSet<>();
-        for (int num : nums1) {
+        for (int num : nums2) {
             if (set1.contains(num)) {
                 intersectionSet.add(num);
             }
@@ -71,12 +71,12 @@ class Solution {
         else{
 
         HashSet<Integer> set1 = new HashSet<>();
-        for (int num : nums1) {
+        for (int num : nums2) {
             set1.add(num);
         }
 
         HashSet<Integer> intersectionSet = new HashSet<>();
-        for (int num : nums2) {
+        for (int num : nums1) {
             if (set1.contains(num)) {
                 intersectionSet.add(num);
             }
