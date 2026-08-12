@@ -7,12 +7,12 @@ class Solution {
         if(n1<n2){
 
         HashSet<Integer> set1 = new HashSet<>();
-        for (int num : nums2) {
+        for (int num : nums1) {
             set1.add(num);
         }
 
         HashSet<Integer> intersectionSet = new HashSet<>();
-        for (int num : nums1) {
+        for (int num : nums2) {
             if (set1.contains(num)) {
                 intersectionSet.add(num);
             }
@@ -29,12 +29,12 @@ class Solution {
         else{
 
         HashSet<Integer> set1 = new HashSet<>();
-        for (int num : nums1) {
+        for (int num : nums2) {
             set1.add(num);
         }
 
         HashSet<Integer> intersectionSet = new HashSet<>();
-        for (int num : nums2) {
+        for (int num : nums1) {
             if (set1.contains(num)) {
                 intersectionSet.add(num);
             }
