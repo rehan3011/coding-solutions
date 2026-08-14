@@ -47,8 +47,8 @@ Output: 4
 
 **Language:** Java  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 44.9 MB (beats 29.14%)  
-**Submitted:** 2026-08-14T14:42:44.675Z  
+**Memory:** 44.7 MB (beats 48.73%)  
+**Submitted:** 2026-08-14T14:43:52.344Z  
 
 ```java
 class Solution {
@@ -60,7 +60,7 @@ class Solution {
         
 
         while(l<=h){
-            int mid = l+(h-l)/2;
+            int mid = (l+h)/2;
 
             if(arr[mid]==target){
                 return mid;
