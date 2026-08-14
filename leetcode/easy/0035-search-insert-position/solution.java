@@ -7,7 +7,7 @@ class Solution {
         
 
         while(l<=h){
-            int mid = l+(h-l)/2;
+            int mid = (l+h)/2;
 
             if(arr[mid]==target){
                 return mid;
