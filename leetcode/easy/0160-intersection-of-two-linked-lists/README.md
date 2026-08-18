@@ -78,8 +78,8 @@ Explanation: The two lists do not intersect, so return null.
 
 **Language:** Java  
 **Runtime:** 2 ms (beats 48.45%)  
-**Memory:** 52.9 MB (beats 45.86%)  
-**Submitted:** 2026-08-18T09:14:49.211Z  
+**Memory:** 52.5 MB (beats 93.76%)  
+**Submitted:** 2026-08-18T09:25:24.122Z  
 
 ```java
 /**
@@ -94,17 +94,59 @@ Explanation: The two lists do not intersect, so return null.
  * }
  */
 public class Solution {
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        ListNode p1 = headA;
-        ListNode p2 = headB;
-
-        while(p1!=p2){
-           p1= (p1==null)?headB:p1.next;
-           p2= (p2==null)?headA:p2.next;
+    public static int len(ListNode l){
+        int len = 0;
+        while(l!=null){
+            len++;
+            l = l.next;
         }
-        return p2;
+        return len;
     }
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+       
+       int lenA = len(headA);
+       int lenB = len(headB);
+
+       ListNode p1 = headA;
+       ListNode p2 = headB;
+
+       while(lenA>lenB){
+        p1 = p1.next;
+        lenA--;
+       }
+
+       while(lenB>lenA){
+        p2 = p2.next;
+        lenB--;
+       }
+
+       while(p1!=null||p2!=null){
+        if(p1==p2){
+            return p1;
+        }
+        p1 = p1.next;
+        p2 = p2.next;
+       }
+
+         return null;
+    }
+   
 }
+
+
+
+
+
+
+       //optimal solution
+        // ListNode p1 = headA;
+        // ListNode p2 = headB;
+
+        // while(p1!=p2){
+        //    p1= (p1==null)?headB:p1.next;
+        //    p2= (p2==null)?headA:p2.next;
+        // }
+        // return p2;
 ```
 
 ---
