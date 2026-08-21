@@ -1,45 +1,45 @@
 class Solution {
-    // public int romanToInt(String s) {
-    //     int n = s.length();
-    //     int total = 0;
-    //     for(int i=0; i<n; i++){
-    //         int current = check(s.charAt(i));
-    //         if (i + 1 < n && current < check(s.charAt(i + 1))) {
-    //             total -= current;
-    //         } else {
-    //             total += current;
-    //         }
-    //     }
-    //     return total;
-    // }
-
-    // public static int check(char ch){
-        
-    //     if(ch=='I')  return 1;
-    //     else if(ch=='V') return 5;
-    //     else if(ch=='X')  return 10;
-    //     else if(ch=='L') return 50;
-    //     else if(ch=='C')  return 100;
-    //     else if(ch=='D')  return 500;
-    //     else if(ch=='M') return 1000;
-    //     return 0;
-    // }
-    
     public int romanToInt(String s) {
-        Map<Character, Integer> mp = Map.of(
-            'I',1, 'V',5, 'X',10, 'L',50, 'C',100, 'D',500, 'M',1000
-        );
-
-        int count = 0;
-
-        for(int i=0; i<s.length(); i++){
-            int current = mp.get(s.charAt(i));
-
-            int next = (i+1<s.length())?mp.get(s.charAt(i+1)):0;
-            if(current<next) count-=current;
-            else count+=current;
+        int n = s.length();
+        int total = 0;
+        for(int i=0; i<n; i++){
+            int current = check(s.charAt(i));
+            if (i + 1 < n && current < check(s.charAt(i + 1))) {
+                total -= current;
+            } else {
+                total += current;
+            }
         }
-          return count;
+        return total;
     }
+
+    public static int check(char ch){
+        
+        if(ch=='I')  return 1;
+        else if(ch=='V') return 5;
+        else if(ch=='X')  return 10;
+        else if(ch=='L') return 50;
+        else if(ch=='C')  return 100;
+        else if(ch=='D')  return 500;
+        else if(ch=='M') return 1000;
+        return 0;
+    }
+    // using map data structure
+    // public int romanToInt(String s) {
+    //     Map<Character, Integer> mp = Map.of(
+    //         'I',1, 'V',5, 'X',10, 'L',50, 'C',100, 'D',500, 'M',1000
+    //     );
+
+    //     int count = 0;
+
+    //     for(int i=0; i<s.length(); i++){
+    //         int current = mp.get(s.charAt(i));
+
+    //         int next = (i+1<s.length())?mp.get(s.charAt(i+1)):0;
+    //         if(current<next) count-=current;
+    //         else count+=current;
+    //     }
+    //       return count;
+    // }
   
 }
