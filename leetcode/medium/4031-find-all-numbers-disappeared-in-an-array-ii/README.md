@@ -60,47 +60,68 @@ Return a 2D integer array where each element is of the form `[start, end]`, repr
 ## Solution
 
 **Language:** Java  
-**Runtime:** 90 ms (beats 21.56%)  
-**Memory:** 185.6 MB (beats 5.14%)  
-**Submitted:** 2026-08-23T11:16:36.552Z  
+**Runtime:** 93 ms (beats 15.02%)  
+**Memory:** 175.5 MB (beats 22.05%)  
+**Submitted:** 2026-08-23T11:42:21.353Z  
 
 ```java
 import java.util.*;
 
 class Solution {
     public List<List<Integer>> findDisappearedNumbers(int[] nums, int lower, int upper) {
-        
-        Set<Integer> presentNumbers = new HashSet<>();
-        for (int num : nums) {
-            presentNumbers.add(num);
+        Set <Integer> hs = new HashSet<>();
+        List<List<Integer>> ls = new ArrayList<>();
+        int i = lower;
+        for(int j:nums){
+            hs.add(j);
         }
-
-        List<List<Integer>> result = new ArrayList<>();
-        int startMissing = -1;
-
-        
-        for (int i = lower; i <= upper; i++) {
-            if (!presentNumbers.contains(i)) {
-                
-                if (startMissing == -1) {
-                    startMissing = i;
-                }
-            } else {
-                
-                if (startMissing != -1) {
-                    result.add(Arrays.asList(startMissing, i - 1));
-                    startMissing = -1; 
-                }
+        while(i <= upper){
+            if(hs.contains(i)){
+                i++;
+                continue;
             }
+            int start = i;
+            while(i<=upper && !hs.contains(i)){
+                i++;
+            }
+            int high = i-1;
+            ls.add(Arrays.asList(start,high));
         }
+        return ls;
+    }
+    // public List<List<Integer>> findDisappearedNumbers(int[] nums, int lower, int upper) {
+        
+    //     Set<Integer> presentNumbers = new HashSet<>();
+    //     for (int num : nums) {
+    //         presentNumbers.add(num);
+    //     }
+
+    //     List<List<Integer>> result = new ArrayList<>();
+    //     int startMissing = -1;
+
+        
+    //     for (int i = lower; i <= upper; i++) {
+    //         if (!presentNumbers.contains(i)) {
+                
+    //             if (startMissing == -1) {
+    //                 startMissing = i;
+    //             }
+    //         } else {
+                
+    //             if (startMissing != -1) {
+    //                 result.add(Arrays.asList(startMissing, i - 1));
+    //                 startMissing = -1; 
+    //             }
+    //         }
+    //     }
 
        
-        if (startMissing != -1) {
-            result.add(Arrays.asList(startMissing, upper));
-        }
+    //     if (startMissing != -1) {
+    //         result.add(Arrays.asList(startMissing, upper));
+    //     }
 
-        return result;
-    }
+    //     return result;
+    // }
 }
 
 ```
