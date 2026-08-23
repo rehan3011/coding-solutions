@@ -60,9 +60,9 @@ Return a 2D integer array where each element is of the form `[start, end]`, repr
 ## Solution
 
 **Language:** Java  
-**Runtime:** 91 ms (beats 19.09%)  
-**Memory:** 183.2 MB (beats 10.96%)  
-**Submitted:** 2026-08-23T11:14:26.485Z  
+**Runtime:** 90 ms (beats 21.56%)  
+**Memory:** 185.6 MB (beats 5.14%)  
+**Submitted:** 2026-08-23T11:16:36.552Z  
 
 ```java
 import java.util.*;
