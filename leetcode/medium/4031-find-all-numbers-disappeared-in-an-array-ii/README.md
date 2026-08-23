@@ -60,35 +60,67 @@ Return a 2D integer array where each element is of the form `[start, end]`, repr
 ## Solution
 
 **Language:** Java  
-**Runtime:** 93 ms (beats 15.02%)  
-**Memory:** 175.5 MB (beats 22.05%)  
-**Submitted:** 2026-08-23T11:42:21.353Z  
+**Runtime:** 50 ms (beats 62.33%)  
+**Memory:** 166.2 MB (beats 85.17%)  
+**Submitted:** 2026-08-23T12:11:11.182Z  
 
 ```java
 import java.util.*;
 
 class Solution {
-    public List<List<Integer>> findDisappearedNumbers(int[] nums, int lower, int upper) {
-        Set <Integer> hs = new HashSet<>();
+    public List<List<Integer>> findDisappearedNumbers(int[] arr, int lower, int upper){
+        Arrays.sort(arr);
         List<List<Integer>> ls = new ArrayList<>();
-        int i = lower;
-        for(int j:nums){
-            hs.add(j);
-        }
-        while(i <= upper){
-            if(hs.contains(i)){
-                i++;
+        int n =arr.length;
+
+        int start =lower;
+
+        for(int i=0; i<n; i++){
+            if(arr[i]<start){
                 continue;
             }
-            int start = i;
-            while(i<=upper && !hs.contains(i)){
-                i++;
+
+            if(arr[i]>upper){
+                break;
             }
-            int high = i-1;
-            ls.add(Arrays.asList(start,high));
+
+            if(arr[i]>start){
+                ls.add(Arrays.asList(start, arr[i]-1));
+            }
+            start = arr[i]+1;
         }
+
+        if(start<=upper){
+            ls.add(Arrays.asList(start, upper));
+        }
+
         return ls;
+        
     }
+    // fast Approach
+    // public List<List<Integer>> findDisappearedNumbers(int[] nums, int lower, int upper) {
+    //     Set <Integer> hs = new HashSet<>();
+    //     List<List<Integer>> ls = new ArrayList<>();
+    //     int i = lower;
+    //     for(int j:nums){
+    //         hs.add(j);
+    //     }
+    //     while(i <= upper){
+    //         if(hs.contains(i)){
+    //             i++;
+    //             continue;
+    //         }
+    //         int start = i;
+    //         while(i<=upper && !hs.contains(i)){
+    //             i++;
+    //         }
+    //         int high = i-1;
+    //         ls.add(Arrays.asList(start,high));
+    //     }
+    //     return ls;
+    // }
+
+    // faster approach
     // public List<List<Integer>> findDisappearedNumbers(int[] nums, int lower, int upper) {
         
     //     Set<Integer> presentNumbers = new HashSet<>();
