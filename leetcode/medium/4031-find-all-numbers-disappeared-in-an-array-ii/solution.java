@@ -1,27 +1,59 @@
 import java.util.*;
 
 class Solution {
-    public List<List<Integer>> findDisappearedNumbers(int[] nums, int lower, int upper) {
-        Set <Integer> hs = new HashSet<>();
+    public List<List<Integer>> findDisappearedNumbers(int[] arr, int lower, int upper){
+        Arrays.sort(arr);
         List<List<Integer>> ls = new ArrayList<>();
-        int i = lower;
-        for(int j:nums){
-            hs.add(j);
-        }
-        while(i <= upper){
-            if(hs.contains(i)){
-                i++;
+        int n =arr.length;
+
+        int start =lower;
+
+        for(int i=0; i<n; i++){
+            if(arr[i]<start){
                 continue;
             }
-            int start = i;
-            while(i<=upper && !hs.contains(i)){
-                i++;
+
+            if(arr[i]>upper){
+                break;
             }
-            int high = i-1;
-            ls.add(Arrays.asList(start,high));
+
+            if(arr[i]>start){
+                ls.add(Arrays.asList(start, arr[i]-1));
+            }
+            start = arr[i]+1;
         }
+
+        if(start<=upper){
+            ls.add(Arrays.asList(start, upper));
+        }
+
         return ls;
+        
     }
+    // fast Approach
+    // public List<List<Integer>> findDisappearedNumbers(int[] nums, int lower, int upper) {
+    //     Set <Integer> hs = new HashSet<>();
+    //     List<List<Integer>> ls = new ArrayList<>();
+    //     int i = lower;
+    //     for(int j:nums){
+    //         hs.add(j);
+    //     }
+    //     while(i <= upper){
+    //         if(hs.contains(i)){
+    //             i++;
+    //             continue;
+    //         }
+    //         int start = i;
+    //         while(i<=upper && !hs.contains(i)){
+    //             i++;
+    //         }
+    //         int high = i-1;
+    //         ls.add(Arrays.asList(start,high));
+    //     }
+    //     return ls;
+    // }
+
+    // faster approach
     // public List<List<Integer>> findDisappearedNumbers(int[] nums, int lower, int upper) {
         
     //     Set<Integer> presentNumbers = new HashSet<>();
