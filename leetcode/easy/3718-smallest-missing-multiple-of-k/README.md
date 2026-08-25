@@ -41,48 +41,64 @@ The multiples of `k = 5` are 5, 10, 15, 20... and the smallest multiple missing 
 ## Solution
 
 **Language:** Java  
-**Runtime:** 8 ms (beats 5.78%)  
-**Memory:** 45.8 MB (beats 6.83%)  
-**Submitted:** 2026-08-25T18:19:48.178Z  
+**Runtime:** 2 ms (beats 68.20%)  
+**Memory:** 45.4 MB (beats 38.11%)  
+**Submitted:** 2026-08-25T18:21:27.117Z  
 
 ```java
 class Solution {
     public int missingMultiple(int[] nums, int k) {
-        Arrays.sort(nums);
+        Set<Integer> set = new HashSet<>();
 
-        int n = nums.length;
-        int max = nums[n - 1];
-
-        Set<Integer> set = ReturnLeast(n, max, k);
-
-        for (int x : set) {
-            if (Arrays.binarySearch(nums, x) < 0) {
-                return x;
-            }
+        for (int num : nums) {
+            set.add(num);
         }
 
-        int curr = k;
+        int multiple = k;
 
-        while (curr <= max) {
-            curr += k;
+        while (set.contains(multiple)) {
+            multiple += k;
         }
 
-        return curr;
-    }
-
-    public static Set<Integer> ReturnLeast(int n, int max, int k) {
-        Set<Integer> set = new TreeSet<>();
-
-        int curr = k;
-
-        while (curr <= max) {
-            set.add(curr);
-            curr += k;
-        }
-
-        return set;
+        return multiple;
     }
 }
+//     public int missingMultiple(int[] nums, int k) {
+//         Arrays.sort(nums);
+
+//         int n = nums.length;
+//         int max = nums[n - 1];
+
+//         Set<Integer> set = ReturnLeast(n, max, k);
+
+//         for (int x : set) {
+//             if (Arrays.binarySearch(nums, x) < 0) {
+//                 return x;
+//             }
+//         }
+
+//         int curr = k;
+
+//         while (curr <= max) {
+//             curr += k;
+//         }
+
+//         return curr;
+//     }
+
+//     public static Set<Integer> ReturnLeast(int n, int max, int k) {
+//         Set<Integer> set = new TreeSet<>();
+
+//         int curr = k;
+
+//         while (curr <= max) {
+//             set.add(curr);
+//             curr += k;
+//         }
+
+//         return set;
+//     }
+// }
 ```
 
 ---
