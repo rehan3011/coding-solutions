@@ -39,12 +39,14 @@ You must implement a solution with a linear runtime complexity and use only co
 ## Solution
 
 **Language:** Java  
-**Runtime:** 11 ms (beats 24.01%)  
-**Memory:** 48.4 MB (beats 6.93%)  
-**Submitted:** 2026-08-26T17:48:16.118Z  
+**Runtime:** 1 ms (beats 99.94%)  
+**Memory:** 46.6 MB (beats 92.67%)  
+**Submitted:** 2026-08-26T18:19:32.003Z  
 
 ```java
 class Solution {
+
+    //solution 1
     // public int singleNumber(int[] nums) {
     //     Map<Integer,Integer> mp = new HashMap<>();
     //     int n = nums.length;
@@ -58,6 +60,8 @@ class Solution {
     //     }
     //     return 0;
     // }
+
+    // Wrong Approach
     // public int singleNumber(int[] nums) {
     //     Arrays.sort(nums);
     //     int n = nums[nums.length-1];
@@ -75,29 +79,38 @@ class Solution {
     //      return 0;
     // }
 
-    public int singleNumber(int[] nums) {
-        // Step 1: Sort to easily find the min and max values
-        Arrays.sort(nums);
-        int min = nums[0];
-        int max = nums[nums.length - 1];
+    //Correct But Slow
+    // public int singleNumber(int[] nums) {
+    //     Arrays.sort(nums);
+    //     int min = nums[0];
+    //     int max = nums[nums.length - 1];
         
-        // Step 2: Size the array to fit the entire range of numbers safely
-        int range = max - min + 1;
-        int arr[] = new int[range];
+    //     int range = max - min + 1;
+    //     int arr[] = new int[range];
 
-        // Step 3: Shift indices by subtracting 'min' to handle negative numbers
-        for (int i : nums) {
-            arr[i - min]++;
-        }
 
-        // Step 4: Find the element with a count of 1
-        for (int i : nums) {
-            if (arr[i - min] == 1) {
-                return i; 
-            }
+    //     for (int i : nums) {
+    //         arr[i - min]++;
+    //     }
+
+
+    //     for (int i : nums) {
+    //         if (arr[i - min] == 1) {
+    //             return i; 
+    //         }
+    //     }
+    //     return 0;
+    // }
+
+     public int singleNumber(int[] nums) {
+        int index=0;
+        for(int i=0;i<nums.length;i++){
+            index=index^nums[i];
         }
-        return 0;
-    }
+        
+        return index;
+     }
+
 }
 ```
 
