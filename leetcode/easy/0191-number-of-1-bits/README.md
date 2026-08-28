@@ -52,8 +52,8 @@ The input binary string  **1111111111111111111111111111101**  has a total of thi
 
 **Language:** Java  
 **Runtime:** 1 ms (beats 30.61%)  
-**Memory:** 42.4 MB (beats 47.16%)  
-**Submitted:** 2026-08-28T17:53:01.129Z  
+**Memory:** 42.3 MB (beats 65.87%)  
+**Submitted:** 2026-08-28T17:53:52.639Z  
 
 ```java
 class Solution {
