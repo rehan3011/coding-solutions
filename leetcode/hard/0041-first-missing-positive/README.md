@@ -47,26 +47,48 @@ Explanation: The smallest positive integer 1 is missing.
 ## Solution
 
 **Language:** Java  
-**Runtime:** 20 ms (beats 7.36%)  
-**Memory:** 74 MB (beats 26.20%)  
-**Submitted:** 2026-08-29T08:55:47.377Z  
+**Runtime:** 17 ms (beats 18.08%)  
+**Memory:** 93.2 MB (beats 7.85%)  
+**Submitted:** 2026-08-29T09:06:46.800Z  
 
 ```java
 class Solution {
     public int firstMissingPositive(int[] nums) {
+        
+        Set <Integer> set = new HashSet<>();
+
         int n = nums.length;
-        Arrays.sort(nums);
-        int start = 1;
 
         for(int i:nums){
-            if(i>0&&i==start){
+            if(i>0){
+                set.add(i);
+            }
+        }
+        int start = 1;
+        for(int j:set){
+            if(set.contains(start)){
                 start++;
             }
-            else if(i>start){
+            else{
                 return start;
             }
         }
         return start;
+        
+        //solution 1
+        // int n = nums.length;
+        // Arrays.sort(nums);
+        // int start = 1;
+
+        // for(int i:nums){
+        //     if(i>0&&i==start){
+        //         start++;
+        //     }
+        //     else if(i>start){
+        //         return start;
+        //     }
+        // }
+        // return start;
     }
 }
 ```
