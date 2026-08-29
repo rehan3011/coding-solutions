@@ -47,9 +47,9 @@ Explanation: The smallest positive integer 1 is missing.
 ## Solution
 
 **Language:** Java  
-**Runtime:** 1 ms  
-**Memory:** 43 MB  
-**Submitted:** 2026-08-29T08:55:42.266Z  
+**Runtime:** 20 ms (beats 7.36%)  
+**Memory:** 74 MB (beats 26.20%)  
+**Submitted:** 2026-08-29T08:55:47.377Z  
 
 ```java
 class Solution {
