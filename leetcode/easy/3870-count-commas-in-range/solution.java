@@ -12,20 +12,27 @@ class Solution {
 
     //     return count;
     // }
-    public int countCommas(int n) {
-        int count = 0;
-        int c = n;
+    // public int countCommas(int n) {
+    //     int count = 0;
+    //     int c = n;
 
-        while(c>0){
-            c/=10;
-            count++;
+    //     while(c>0){
+    //         c/=10;
+    //         count++;
+    //     }
+    //     int comma = 0;
+    //     if(count>=4){
+    //         for(int i=1000; i<=n; i++){
+    //             comma++;
+    //         }
+    //     }
+    //     return comma;
+    // }
+    public int countCommas(int n) {
+        if(n<1000){
+            return 0;
         }
-        int comma = 0;
-        if(count>=4){
-            for(int i=1000; i<=n; i++){
-                comma++;
-            }
-        }
-        return comma;
+        return n-999;
     }
+
 }
