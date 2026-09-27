@@ -1,17 +1,23 @@
 class Solution {
     public int majorityElement(int[] nums) {
+        Set <Integer> set = new HashSet<Integer>();
         int n = nums.length;
-
-        HashMap <Integer, Integer> hm = new  HashMap<>();
-
-        for(int num:nums){
-            hm.put(num,hm.getOrDefault(num,0)+1);
+        for(int i=0; i<n; i++){
+            set.add(nums[i]);
         }
+        int count=0;
 
-        for(int i:hm.keySet()){
-            if(hm.get(i)>n/2) return i;
+        for(int j = 0; j<n ;j++){
+            count = 0;
+            for(int k = 0; k<n; k++){
+                if(set.contains(nums[j])){
+                    count++;
+                }
+                if(count>=n/2){
+                    return nums[j];
+                }
+            }
         }
-
-        return -1;
+        return 0;
     }
 }
