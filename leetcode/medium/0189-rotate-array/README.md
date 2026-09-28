@@ -49,51 +49,27 @@ rotate 2 steps to the right: [3,99,-1,-100]
 ## Solution
 
 **Language:** Java  
-**Runtime:** 1 ms (beats 41.44%)  
-**Memory:** 61.5 MB (beats 29.94%)  
-**Submitted:** 2026-07-24T13:33:29.798Z  
+**Runtime:** 0 ms  
+**Memory:** 42.7 MB  
+**Submitted:** 2026-09-28T17:37:05.267Z  
 
 ```java
 class Solution {
-    private static void reverse(int[] nums, int l, int r){
-        while(l<r){
-            int temp = nums[l];
-            nums[l] = nums[r];
-            nums[r] = temp;
-            l++;
-            r--;  
-        }
-    }
     public void rotate(int[] nums, int k) {
-
         int n = nums.length;
-        k%=n;
-        reverse(nums, 0, n-1);
-        reverse(nums, 0, k-1);
-        reverse(nums, k, n-1);
-        System.out.print(nums);
-
-
-
-        // Brute force approach :(
-        
-        // int n = nums.length;
-        // int i = 0;
-        // int j;
-        // int last = 0;
-        // k%=n;
-
-        // for(i = 0; i<k; i++){
-        //     last = nums[n-1];
-        //     for(j = n-1; j>0; j--){
-                
-        //         nums[j] = nums[j-1];
-        //     }
-        //     nums[0] = last; 
-        // }
-        // System.out.print(nums);
-
-            
+        k = k % n;
+        Reverse(nums, 0, n - 1);
+        Reverse(nums, 0, k - 1);
+        Reverse(nums, k, n - 1);
+    }
+    void Reverse(int[] nums, int s, int e) {
+        while (e > s) {
+            int temp = nums[s];
+            nums[s] = nums[e];
+            nums[e] = temp;
+            s++;
+            e--;
+        }
     }
 }
 ```
