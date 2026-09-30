@@ -44,20 +44,20 @@ All elements are distinct.
 ## Solution
 
 **Language:** Java  
-**Runtime:** 17 ms (beats 88.28%)  
-**Memory:** 108.3 MB (beats 38.00%)  
-**Submitted:** 2026-08-31T16:48:10.453Z  
+**Runtime:** 25 ms (beats 17.79%)  
+**Memory:** 81.5 MB (beats 89.88%)  
+**Submitted:** 2026-09-30T15:47:09.058Z  
 
 ```java
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        Set <Integer> set = new HashSet<>();
+        int n = nums.length;
+        Arrays.sort(nums);
 
-        for(int i:nums){
-            if(set.contains(i)){
+        for(int i=0; i<n-1; i++){
+            if(nums[i]-nums[i+1]==0){
                 return true;
             }
-            set.add(i);
         }
         return false;
     }
